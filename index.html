@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXHIRE</title></title>
+  <!-- Google Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Clean, Human-made, Professional CSS */
+    :root {
+      --primary: #1e40af;       /* Classic Deep Blue */
+      --primary-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --success: #15803d;
+      --radius: 8px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+    /* Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .admin-toggle-btn {
+      background: #f1f5f9;
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .admin-toggle-btn:hover {
+      background: #e2e8f0;
+    }
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+    /* Top Grid: Hero Block on Left, Registration on Right */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    /* Fresher Opportunities Big Banner */
+    .opportunity-card {
+      background: #ffffff;
+      border: 2px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 36px 28px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .opportunity-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.06);
+    }
+    .badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .opportunity-card h1 {
+      font-size: 28px;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .opportunity-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+    .click-prompt {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    /* Registration Form Box */
+    .register-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .register-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .register-box .subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+    .form-group input, 
+    .form-group select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+    .form-group input:focus, 
+    .form-group select:focus {
+      border-color: var(--primary);
+    }
+    .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .btn-submit:hover {
+      background: var(--primary-hover);
+    }
+    .divider {
+      text-align: center;
+      margin: 14px 0;
+      position: relative;
+    }
+    .divider span {
+      background: #ffffff;
+      padding: 0 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+    .divider::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border);
+    }
+    .btn-google {
+      width: 100%;
+      background: #ffffff;
+      color: #1e293b;
+      border: 1px solid var(--border);
+      padding: 9px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-google:hover {
+      background: #f8fafc;
+    }
+    /* Views Logic */
+    .view-section {
+      display: none;
+    }
+    .view-section.active {
+      display: block;
+    }
+    /* Skill Categories Page (4 Blocks) */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .back-btn {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .cat-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .cat-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    }
+    .cat-icon {
+      width: 44px;
+      height: 44px;
+      background: #eff6ff;
+      color: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .cat-info h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .cat-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    /* Jobs Listing Page */
+    .jobs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .job-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .job-details h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .job-details .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .job-details .meta span i {
+      color: #94a3b8;
+      margin-right: 4px;
+    }
+    .btn-apply {
+      background: var(--success);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .empty-state {
+      background: #ffffff;
+      border: 1px dashed var(--border);
+      padding: 40px;
+      text-align: center;
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    /* Admin Dashboard Panel */
+    .admin-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .admin-panel h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+    .admin-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Header -->
+  <header>
+    <a href="#" class="brand" onclick="goToHome()">NEXHIRE</a>
+    <button class="admin-toggle-btn" onclick="toggleAdminPanel()">
+      <i class="fa-solid fa-gear"></i> Admin Dashboard (Post Jobs)
+    </button>
+  </header>
+  <div class="container">
+    <!-- VIEW 1: HOME PAGE -->
+    <div id="homeView" class="view-section active">
+      <div class="hero-grid">
+        
+        <!-- Left: Big Fresher Opportunity Block -->
+        <div class="opportunity-card" onclick="openCategoriesView()">
+          <span class="badge"><i class="fa-solid fa-graduation-cap"></i> 0-1 Years Experience</span>
+          <h1>Fresher Job Opportunities</h1>
+          <p>Explore verified entry-level openings in Video Editing, Call Center, Graphic Design, and Back-Office. Start your career with no prior work experience required.</p>
+          <div class="click-prompt">
+            Click here to view categories & jobs <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <!-- Right: Compact Candidate Registration Block -->
+        <div class="register-box">
+          <h3>Candidate Registration</h3>
+          <p class="subtitle">Quick register to get job updates on phone</p>
+          <form id="candidateForm" onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="regName" placeholder="e.g. Rahul Sharma" required>
+            </div>
+            <div class="form-group">
+              <label>Your Skill / Field</label>
+              <select id="regSkill" required>
+                <option value="">Select Primary Skill</option>
+                <option value="Video Editing">Video Editing</option>
+                <option value="Call Center Job">Call Center Job</option>
+                <option value="Graphic Designer">Graphic Designer</option>
+                <option value="Data Entry / Telecaller">Data Entry / Telecaller</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input type="tel" id="regPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+            </div>
+            <button type="submit" class="btn-submit">Register Now</button>
+            <div class="divider">
+              <span>OR</span>
+            </div>
+            <button type="button" class="btn-google" onclick="handleGoogleLogin()">
+              <i class="fa-brands fa-google" style="color: #ea4335;"></i> Continue with Google
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- VIEW 2: SKILL CATEGORIES (4 Blocks) -->
+    <div id="categoriesView" class="view-section">
+      <div class="section-header">
+        <div>
+          <h2>Select Your Skill Category</h2>
+          <p style="font-size: 14px; color: var(--text-muted);">Click on your skill to view active jobs posted by admin</p>
+        </div>
+        <button class="back-btn" onclick="goToHome()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+      </div>
+      <div class="categories-grid">
+        <!-- Block 1: Video Editing -->
+        <div class="cat-card" onclick="openJobsList('Video Editing')">
+          <div class="cat-icon"><i class="fa-solid fa-video"></i></div>
+          <div class="cat-info">
+            <h3>Video Editing</h3>
+            <p>Reels, YouTube editing, Premiere Pro, After Effects</p>
+          </div>
+        </div>
+        <!-- Block 2: Call Center Job -->
+        <div class="cat-card" onclick="openJobsList('Call Center Job')">
+          <div class="cat-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="cat-info">
+            <h3>Call Center Job</h3>
+            <p>Inbound, Outbound calling, Customer support (Hindi/Eng)</p>
+          </div>
+        </div>
+        <!-- Block 3: Graphic Designer -->
+        <div class="cat-card" onclick="openJobsList('Graphic Designer')">
+          <div class="cat-icon"><i class="fa-solid fa-palette"></i></div>
+          <div class="cat-info">
+            <h3>Graphic Designer</h3>
+            <p>Social media posts, Canva, Photoshop, Illustrator</p>
+          </div>
+        </div>
+        <!-- Block 4: Data Entry / Telecaller -->
+        <div class="cat-card" onclick="openJobsList('Data Entry / Telecaller')">
+          <div class="cat-icon"><i class="fa-solid fa-keyboard"></i></div>
+          <div class="cat-info">
+            <h3>Data Entry / Telecaller</h3>
+            <p>Excel typing, Back-office, Lead verification</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- VIEW 3: JOBS FOR SELECTED SKILL -->
+    <div id="jobsView" class="view-section">
+      <div class="section-header">
+        <div>
+          <h2 id="jobCategoryTitle">Jobs Available</h2>
+          <p style="font-size: 14px; color: var(--text-muted);">Directly posted from admin dashboard for freshers</p>
+        </div>
+        <button class="back-btn" onclick="openCategoriesView()"><i class="fa-solid fa-arrow-left"></i> Change Category</button>
+      </div>
+      <div class="jobs-list" id="jobsContainer">
+        <!-- Jobs will be rendered here dynamically -->
+      </div>
+    </div>
+    <!-- ADMIN DASHBOARD PANEL (For you to post jobs) -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+      <h2><i class="fa-solid fa-briefcase"></i> Post a New Job (Admin Dashboard)</h2>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+        When you add a job here, it will automatically appear in that skill's block for candidates.
+      </p>
+      <form id="adminJobForm" onsubmit="handlePostJob(event)">
+        <div class="admin-form-grid">
+          <div class="form-group">
+            <label>Job Title</label>
+            <input type="text" id="jobTitle" placeholder="e.g. Junior Reels Video Editor" required>
+          </div>
+          <div class="form-group">
+            <label>Company / Agency Name</label>
+            <input type="text" id="jobCompany" placeholder="e.g. Media Works Studio" required>
+          </div>
+          <div class="form-group">
+            <label>Category (Target Skill)</label>
+            <select id="jobCategory" required>
+              <option value="Video Editing">Video Editing</option>
+              <option value="Call Center Job">Call Center Job</option>
+              <option value="Graphic Designer">Graphic Designer</option>
+              <option value="Data Entry / Telecaller">Data Entry / Telecaller</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Monthly Salary</label>
+            <input type="text" id="jobSalary" placeholder="e.g. ₹18,000 - ₹25,000" required>
+          </div>
+          <div class="form-group">
+            <label>Job Location</label>
+            <input type="text" id="jobLocation" placeholder="e.g. Delhi / Work From Home" required>
+          </div>
+          <div class="form-group">
+            <label>Contact / Apply Info</label>
+            <input type="text" id="jobContact" placeholder="e.g. WhatsApp: 9876543210 or HR Email" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" style="width: auto; padding: 10px 24px;">
+          <i class="fa-solid fa-plus"></i> Post Job Now
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- JavaScript Logic -->
+  <script>
+    // Initial sample jobs (Default data so the portal is not empty initially)
+    const initialJobs = [
+      {
+        id: 1,
+        title: "Reels & Shorts Video Editor",
+        company: "Vibe Media Studio",
+        category: "Video Editing",
+        salary: "₹18,000 - ₹22,000 / month",
+        location: "Work from Home / Remote",
+        contact: "WhatsApp HR: 9812345678"
+      },
+      {
+        id: 2,
+        title: "Customer Support Executive (Voice)",
+        company: "Star BPO Services",
+        category: "Call Center Job",
+        salary: "₹16,000 - ₹20,000 / month",
+        location: "Noida, Sector 62",
+        contact: "Call HR: 9876543210"
+      },
+      {
+        id: 3,
+        title: "Junior Canva & Photoshop Designer",
+        company: "Digital Growth Hub",
+        category: "Graphic Designer",
+        salary: "₹15,000 - ₹24,000 / month",
+        location: "Delhi NCR (Hybrid)",
+        contact: "hr@digitalgrowth.com"
+      },
+      {
+        id: 4,
+        title: "Data Entry & Excel Operator",
+        company: "Apex Logistics",
+        category: "Data Entry / Telecaller",
+        salary: "₹14,000 - ₹18,000 / month",
+        location: "Pune / On-site",
+        contact: "WhatsApp: 9988776655"
+      }
+    ];
+    // Load jobs from localStorage or fallback to initialJobs
+    function getStoredJobs() {
+      const stored = localStorage.getItem('NEXHIRE_jobs_data');
+      if (!stored) {
+        localStorage.setItem('NEXHIRE_jobs_data', JSON.stringify(initialJobs));
+        return initialJobs;
+      }
+      return JSON.parse(stored);
+    }
+    // Save job list to localStorage
+    function saveJobsToStorage(jobs) {
+      localStorage.setItem('NEXHIRE_jobs_data', JSON.stringify(jobs));
+    }
+    // Navigation Controls
+    function showView(viewId) {
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(viewId).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function goToHome() {
+      showView('homeView');
+    }
+    function openCategoriesView() {
+      showView('categoriesView');
+    }
+    // Open Jobs filtered by category
+    function openJobsList(category) {
+      showView('jobsView');
+      document.getElementById('jobCategoryTitle').innerText = category + " Openings";
+      
+      const allJobs = getStoredJobs();
+      const matchedJobs = allJobs.filter(j => j.category === category);
+      const container = document.getElementById('jobsContainer');
+      if (matchedJobs.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-folder-open" style="font-size: 28px; margin-bottom: 10px; display: block;"></i>
+            No active jobs in <strong>${category}</strong> right now.<br>
+            Please check back soon or add one via the Admin Dashboard above!
+          </div>
+        `;
+        return;
+      }
+      container.innerHTML = matchedJobs.map(job => `
+        <div class="job-item">
+          <div class="job-details">
+            <h4>${job.title}</h4>
+            <div class="meta">
+              <span><i class="fa-regular fa-building"></i> ${job.company}</span>
+              <span><i class="fa-solid fa-location-dot"></i> ${job.location}</span>
+              <span><i class="fa-solid fa-wallet"></i> ${job.salary}</span>
+            </div>
+          </div>
+          <div>
+            <button class="btn-apply" onclick="applyContact('${job.contact}', '${job.title}')">
+              Apply / Contact: ${job.contact}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+    function applyContact(contactInfo, jobTitle) {
+      alert(`To apply for "${jobTitle}":\n\nDirect contact details:\n${contactInfo}\n\nPlease mention you found this on NEXHIRE!`);
+    }
+    // Toggle Admin Panel visibility
+    function toggleAdminPanel() {
+      const panel = document.getElementById('adminPanel');
+      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+      if (panel.style.display === 'block') {
+        panel.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    // Handle Admin Posting a Job
+    function handlePostJob(e) {
+      e.preventDefault();
+      const newJob = {
+        id: Date.now(),
+        title: document.getElementById('jobTitle').value.trim(),
+        company: document.getElementById('jobCompany').value.trim(),
+        category: document.getElementById('jobCategory').value,
+        salary: document.getElementById('jobSalary').value.trim(),
+        location: document.getElementById('jobLocation').value.trim(),
+        contact: document.getElementById('jobContact').value.trim()
+      };
+      const jobs = getStoredJobs();
+      jobs.unshift(newJob); // Add to top
+      saveJobsToStorage(jobs);
+      alert(`Job posted successfully under "${newJob.category}"!`);
+      document.getElementById('adminJobForm').reset();
+      // Automatically take user to that category so they can see the newly added job
+      openJobsList(newJob.category);
+    }
+    // Registration Form Handler
+    function handleRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value.trim();
+      const skill = document.getElementById('regSkill').value;
+      const phone = document.getElementById('regPhone').value.trim();
+      alert(`Welcome ${name}! Your registration for "${skill}" is successful. We will send matching jobs to ${phone}.`);
+      document.getElementById('candidateForm').reset();
+      
+      // Directly open the jobs of their selected skill
+      openJobsList(skill);
+    }
+    // Google Login Handler
+    function handleGoogleLogin() {
+      const userEmail = prompt("Simulating Google Login:\nPlease enter your Google email:");
+      if (userEmail) {
+        alert(`Successfully signed in with Google (${userEmail})!\nYou can now explore fresher opportunities.`);
+        openCategoriesView();
+      }
+    }
+  </script>
+</body>
+</html>
